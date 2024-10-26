@@ -1,12 +1,11 @@
-import RecipeDetails from "@/app/recipe-list/[details]/page";
-
-
 import Link from "next/link";
 
 export default function RecipeDetailsItem({ getRecipeDetails }) {
   return (
     <div>
-      <Link href={"/recipe-list"}>Go to recipe list</Link>
+      <div className="mb-5 text-gray-600">
+          <Link href={"/recipe-list"} className="text-xl">Go Recipe List Page</Link>
+        </div>
       <div className="p-6 lg:max-w-6xl max-w-2xl mx-auto">
         <div className="grid items-start grid-cols-1 lg:grid-cols-2 gap-10">
           <div className="w-full lg:sticky top-0 sm:flex gap-2">
@@ -37,6 +36,10 @@ export default function RecipeDetailsItem({ getRecipeDetails }) {
                   <li>{item}</li>
                 ))}
               </ul>
+            </div>
+            <div className="mt-5">
+                <h1  className="text-lg font-bold text-gray-700">Instructions :</h1>
+                <p className="mt-3 text-sm text-gray-700">{getRecipeDetails?.instructions}</p>
             </div>
           </div>
         </div>

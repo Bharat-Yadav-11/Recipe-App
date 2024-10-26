@@ -1,19 +1,17 @@
 import RecipeList from "@/components/recipe-list";
 
-async function fetchRecipeList() {
-    try {
-        const apiResponse = await fetch('https://dummyjson.com/recipes');
-        const data = await apiResponse.json();
+async function fetchListOfRecipes() {
+  try {
+    const apiResponse = await fetch("https://dummyjson.com/recipes?limit=100");
+    const data = await apiResponse.json();
 
-        return data?.recipes;
-
-    } catch(e) {
-        throw new Error(e);
-    }
+    return data?.recipes;
+  } catch (e) {
+    throw new Error(e);
+  }
 }
 
-export default async function Recipe() {
-    const recipeList = await fetchRecipeList();
-
-    return <RecipeList recipeList={recipeList} />;
+export default async function Recipes() {
+  const recipeList = await fetchListOfRecipes();
+  return <RecipeList recipeList={recipeList} />;
 }
